@@ -1,0 +1,77 @@
+import java.util.Random; 
+
+public class Zufall {
+    Random wuerfel;
+
+    public Zufall(){
+        wuerfel = new Random(); 
+    }
+
+    public void zufallszahlen() {
+        // 0 <= zuffi < 10
+        int zuffi = wuerfel.nextInt(10); 
+        System.out.println(zuffi);
+        // 1 .. 6
+        int w06 = wuerfel.nextInt(6); // 0..5
+        int w6 = wuerfel.nextInt(6) + 1; // 1..6
+        System.out.println(w6);
+    }
+
+    public void Aufgabe1() {
+        int nr1 = wuerfel.nextInt(19); 
+        System.out.println(nr1);
+    }
+
+    public void Aufgabe2() {
+        int nr2 = wuerfel.nextInt(20) - 10; 
+        System.out.println(nr2);
+    }
+
+    public void Aufgabe3() {
+        int nr3 = wuerfel.nextInt(30) - 10;
+        System.out.println(nr3);
+    }
+
+    public void Aufgabe4() {
+        int nr4w1 = wuerfel.nextInt(5) + 1;
+        int nr4w2 = wuerfel.nextInt(5) + 1;
+        int zahl = nr4w1 + nr4w2;
+        System.out.println(zahl);
+    }
+
+    public void Aufgabe5() {
+        int nr4w1 = wuerfel.nextInt(5) + 1;
+        int nr4w2 = wuerfel.nextInt(5) + 1;
+        int nr4w3 = wuerfel.nextInt(5) + 1;
+        int zahl = nr4w1 + nr4w2 + nr4w3;
+        System.out.println(zahl);
+    }
+
+    // Programmieren Sie folgende Würfel: 
+    // a) ein 20-seitiger Würfel (1-20)
+    // b) ein Würfel von -10 bis +10 (einschliesslich)
+    // c) ein Würfel von -10 bis +20 (einschliesslich)
+    // d) zwei Sechsetige Würfel (2-12) Vorsicht!
+    // e) drei sechsseitige Würfel (3-18) Vorsicht!
+
+    public void jens() {
+        int i = 0; 
+        int neg = 0;
+        int pos = 0;
+        while ( i < 1000) {
+
+            int rndm = wuerfel.nextInt(); 
+            i = i + 1;
+            if (rndm < 0) {
+                neg = neg + 1; 
+            } else {
+                pos = pos + 1;
+            }
+
+        }
+        System.out.println(pos + " Positiv");
+        System.out.println(neg + " Negativ");
+        double anteil = 100.0 * neg / i; // 1 / 3
+        System.out.println("Prozent: " + anteil + "%");
+    }
+}
