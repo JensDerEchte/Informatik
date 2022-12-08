@@ -17,42 +17,24 @@ public class Zufall {
         System.out.println(w6);
     }
 
-    public void Aufgabe1() {
-        int nr1 = wuerfel.nextInt(19); 
+    public void wuerfeln() {
+        // Programmieren Sie folgende Würfel: 
+        // a) ein 20-seitiger Würfel (1-20)
+        int nr1 = wuerfel.nextInt(20) + 1; 
         System.out.println(nr1);
-    }
-
-    public void Aufgabe2() {
-        int nr2 = wuerfel.nextInt(20) - 10; 
+        // b) ein Würfel von -10 bis +10 (einschliesslich)
+        int nr2 = wuerfel.nextInt(21) - 10; 
         System.out.println(nr2);
-    }
-
-    public void Aufgabe3() {
-        int nr3 = wuerfel.nextInt(30) - 10;
+        // c) ein Würfel von -10 bis +20 (einschliesslich)
+        int nr3 = wuerfel.nextInt(31) - 10;
         System.out.println(nr3);
+        // d) zwei Sechsetige Würfel (2-12) Vorsicht!
+        int nr4 = wuerfel.nextInt(6) + 1 + wuerfel.nextInt(6) + 1;
+        System.out.println(nr4);
+        // e) drei sechsseitige Würfel (3-18) Vorsicht!
+        int nr5 = wuerfel.nextInt(6) + 1 + wuerfel.nextInt(6) + 1 +wuerfel.nextInt(6) + 1;
+        System.out.println(nr5);
     }
-
-    public void Aufgabe4() {
-        int nr4w1 = wuerfel.nextInt(5) + 1;
-        int nr4w2 = wuerfel.nextInt(5) + 1;
-        int zahl = nr4w1 + nr4w2;
-        System.out.println(zahl);
-    }
-
-    public void Aufgabe5() {
-        int nr4w1 = wuerfel.nextInt(5) + 1;
-        int nr4w2 = wuerfel.nextInt(5) + 1;
-        int nr4w3 = wuerfel.nextInt(5) + 1;
-        int zahl = nr4w1 + nr4w2 + nr4w3;
-        System.out.println(zahl);
-    }
-
-    // Programmieren Sie folgende Würfel: 
-    // a) ein 20-seitiger Würfel (1-20)
-    // b) ein Würfel von -10 bis +10 (einschliesslich)
-    // c) ein Würfel von -10 bis +20 (einschliesslich)
-    // d) zwei Sechsetige Würfel (2-12) Vorsicht!
-    // e) drei sechsseitige Würfel (3-18) Vorsicht!
 
     public void jens() {
         int i = 0; 
