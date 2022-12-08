@@ -38,10 +38,10 @@ public class Kommazahlen {
     public static void rechnen() {
         // 1. Lies zwei Kommazahlen ein
         // 2. Gib vier Ergebnisse aus:
-        //    - Addiere sie
-        //    - Subtrahiere sie
-        //    - Multiplizierte sie
-        //    - Dividiere sie
+        // - Addiere sie
+        // - Subtrahiere sie
+        // - Multiplizierte sie
+        // - Dividiere sie
     }
 
     public static void ausgeben() {
@@ -84,10 +84,10 @@ public class Kommazahlen {
         double summe = 0;
         while(nenner < 1197){
             summe = summe + 4.0 * vorzeichen / nenner;
-            System.out.println(%.5f, summe );
+            System.out.printf("5 Kommastellen: %.5f", summe );
             vorzeichen = -vorzeichen;
             nenner = nenner + 2;
         }
     }
-
+    
 }
