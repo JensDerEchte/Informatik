@@ -77,7 +77,7 @@ public class Kommazahlen {
         double summe = zahl1 + zahl2;
         System.out.printf("%.2f + %.2f = %.2f %n", zahl1, zahl2, summe);
     } 
-    
+
     public static void annaeherung(){
         int nenner = 1;
         int vorzeichen = 1;
@@ -89,5 +89,36 @@ public class Kommazahlen {
             nenner = nenner + 2;
         }
     }
-    
+
+    public static void teilbar() {
+        int x = 2000;
+        while(x < 5000){
+            if(x / 18 * 18 / 24 * 24 == x){
+                System.out.println(x);
+            }
+            x = x + 1;
+        }
+    }
+
+    public static void teilbar2() {
+        int x = 2000;
+        while(x < 5000){
+            if(x / 18 * 18 == x && x / 24 * 24 == x){
+                System.out.println(x);
+            }
+            x = x + 1;
+        }
+    }
+
+    public static void teilbar3() {
+        int x = 2000;
+        while(x < 5000){
+            if(x / 18 * 18 == x){
+                if(x / 24 * 24 == x) {
+                    System.out.println(x);
+                }
+            }
+            x = x + 1;
+        }
+    }
 }
