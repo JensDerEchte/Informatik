@@ -17,6 +17,8 @@ public class Zahlenraten {
         
         if (zufallszahl < geraten) {
             System.out.print("Meine Zahl ist kleiner!");
+        } else {
+            System.out.print("Meine Zahl ist Größer!");
         }
     }
 }
