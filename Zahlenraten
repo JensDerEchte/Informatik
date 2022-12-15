@@ -8,46 +8,39 @@ public class Zahlenraten {
         generator = new Random(); 
         tastatur = new Scanner(System.in);
     }
-    // Hausis:
-    // 1. Anzahl der Versuche mitzaehlen und Kommentieren
-    // 2. Man soll wiederholt spielen können
     public void ratenG8() {
-        int geraten = 0;
-        int versuche = 0;
-        int eingabe = 1;
-        while(eingabe == 1) {
-            geraten = 0;
-            int  zufallszahl = generator.nextInt(100) + 1;
-            while (zufallszahl != geraten) {
+        int weiter; // 1 bedeutet "weiterspielen"
+        // aeussere Schleife zaehlt Parien 
+        do {
+            int zufallszahl = generator.nextInt(100) + 1;
+            int geraten;
+            int versuche = 0;
+
+            // Innere Schleife laeutf bis Zahl geraten wurde
+            do {
                 System.out.println("Rate meine Zahl: ");
                 geraten = tastatur.nextInt();
+                versuche += 1;
                 if (zufallszahl < geraten){
                     System.out.println("Meine Zahl ist kleiner! ");
-                    versuche += 1;
                 } else if (zufallszahl > geraten) {
                     System.out.println("Meine Zahl ist groesser! ");
-                    versuche += 1;
                 } else if(zufallszahl == geraten) {
                     System.out.println("Hurra, Du hast sie geraten! ");
                 }
-            }
-            System.out.println("Deine Versuche: " + versuche);
-            System.out.println("Weiterspielen? Ja (1) Nein (2)");
-            int weiter = tastatur.nextInt();
-            if(weiter == 2) {
-                eingabe += 1;
-            }
+            }while (zufallszahl != geraten);
+            System.out.printf("Du hast %d geraten. ", versuche);
             if(versuche == 1) {
-                System.out.println("Unglaublich!");
+                System.out.println("Am schummeln bist du!");
             }else if(versuche <= 5) {
-                System.out.println("Sehr gut!");
-            }else if(versuche <= 10) {
-                System.out.println("War schon gut!");
-            }else if(versuche <= 20) {
-                System.out.println("Das geht besser!");
+                System.out.println("Sehr gut(1)!");
+            }else if(versuche <= 7) {
+                System.out.println("Gut(2)!");
             }else {
-                System.out.println("Naja!");
+                System.out.println("ausreichend(4)!");
             }
-        }
+            System.out.println("Weiterspielen? Ja (1) Nein (2)");
+            weiter = tastatur.nextInt();
+        } while (weiter == 1);
     }
 }
