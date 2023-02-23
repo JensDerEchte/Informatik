@@ -1,0 +1,56 @@
+public class ArrayGeneratoren {
+    public int[] reihePotenzen(int anzahl){
+        int[] zahlen = new int[anzahl];
+        int wert = 1;
+        for (int i = 0; i < anzahl; i += 1){
+            zahlen[i] = wert;
+            wert = wert + 1;
+        }
+        druckeArrayTab(zahlen);
+    }
+
+    public int[] reihePotenzen2(int anzahl){
+        int[] zahlen = new int[anzahl];
+        zahlen[0] = 1;
+        for (int i = 1; i < anzahl; i += 1){
+            zahlen[i] = 2 * zahlen[i - 1];
+        }
+        druckeArrayTab(zahlen);
+    }
+
+    public int[] reihePotenzen3(int anzahl){
+        Formelsammlung fs = new Formelsammlung();
+        int[] zahlen = new int[anzahl];
+        zahlen[0] = 1;
+        for (int i = 1; i < anzahl; i += 1){
+            zahlen[i] = fs.zweierPotenz(i);
+        }
+        druckeArrayTab(zahlen);
+    }
+    
+    public int[] zahlenreihe(int anzahl, int basis) {
+        int[] zahlen;
+        zahlen = new int[anzahl]; //initialisierung
+
+        // {6, 12, 18, 24, 30, 36, 42, 48};
+        for(int i = 0; i < zahlen.length; i += 1) {
+            zahlen[i] = basis * (i + 1);
+        }
+
+        druckeArrayTab(zahlen);
+    }
+
+    /*
+     * 1. Erstelle ein Array mit <anzahl> Quadratzahlen
+     */
+
+    public int[] Quadratzahlen(int anzahl, int basis){
+        int[] zahlen = new int[anzahl];
+
+        for( int i = 0; i <zahlen.length; i += 1){
+            zahlen[i] = basis * basis;
+            basis += 1;
+        }
+        druckeArrayTab(zahlen);
+    }
+}
