@@ -1,29 +1,38 @@
+import java.util.Arrays;
 public class PrimzahlSieb {
     public void sieben(){
         /// Deklariere ein Array von Wahrheitswerten
-        boolean[] zahlen = new boolean[101]; 
+        boolean[] zahlen = new boolean[1001]; 
+        int anzahl = 0;
         // Setze alle Werte auf <true>
         for(int i = 2; i < zahlen.length; i++){
             zahlen[i] = true;
         }
 
         // Schleifen Anfang
-        for(int y = 1; y < zahlen.length; y++){
+        for(int y = 2; y < zahlen.length; y++){
             if(zahlen[y] == true) {
-                // 2 ist eine Primzahl
-                // Makiere alle Vielfachen von 2 als <false>
-                // Gehe mit einer Schleife von 4 bis zahlen.length 
-                // in 2er-Schritten durch und markiere alle Stellen 
+                // y ist eine Primzahl
+                // Makiere alle Vielfachen von y als <false>
+                // Gehe mit einer Schleife von y * 2 bis zahlen.length 
                 // als <false>
                 for(int i = y * 2; i < zahlen.length; i += y){
                     zahlen[i] = false; 
                 }
+                anzahl ++;
             }
         }
         //Schleifen Ende
 
         // Am Ende: Gib alle Werte aus
         ausgabe(zahlen);
+        
+        int[] primzahlen = new int[anzahl];
+        // Schleife die durch zahlen geht und immer, wenn 
+        // ein Wert true ist, wird der aktuelle Index 
+        // in primzahlen eingespeichert;
+        
+        System.out.println( Arrays.toString(primzahlen));
     }
     
     public void ausgabe(boolean[] a) {
