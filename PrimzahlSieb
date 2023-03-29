@@ -1,0 +1,42 @@
+public class PrimzahlSieb {
+    public void sieben(){
+        /// Deklariere ein Array von Wahrheitswerten
+        boolean[] zahlen = new boolean[101]; 
+        // Setze alle Werte auf <true>
+        for(int i = 2; i < zahlen.length; i++){
+            zahlen[i] = true;
+        }
+
+        // Schleifen Anfang
+        for(int y = 1; y < zahlen.length; y++){
+            if(zahlen[y] == true) {
+                // 2 ist eine Primzahl
+                // Makiere alle Vielfachen von 2 als <false>
+                // Gehe mit einer Schleife von 4 bis zahlen.length 
+                // in 2er-Schritten durch und markiere alle Stellen 
+                // als <false>
+                for(int i = y * 2; i < zahlen.length; i += y){
+                    zahlen[i] = false; 
+                }
+            }
+        }
+        //Schleifen Ende
+
+        // Am Ende: Gib alle Werte aus
+        ausgabe(zahlen);
+    }
+    
+    public void ausgabe(boolean[] a) {
+        for(int i = 1; i < a.length; i++){
+            if (a[i] == true) {
+                System.out.printf("%3d", i);
+            }else {
+                System.out.print("  -");
+            }
+            
+            if (i % 10 == 0) {
+                System.out.println();
+            }
+        }
+    }
+}
