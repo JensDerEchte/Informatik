@@ -1,8 +1,8 @@
 import java.util.Arrays;
 public class PrimzahlSieb {
-    public void sieben(){
+    public int[] sieben(int maxZahl){
         /// Deklariere ein Array von Wahrheitswerten
-        boolean[] zahlen = new boolean[1001]; 
+        boolean[] zahlen = new boolean[maxZahl + 1]; 
         int anzahl = 0;
         // Setze alle Werte auf <true>
         for(int i = 2; i < zahlen.length; i++){
@@ -24,23 +24,28 @@ public class PrimzahlSieb {
         }
         //Schleifen Ende
 
-        // Am Ende: Gib alle Werte aus
+        // Am Ende: ALT Gib alle Werte aus
         ausgabe(zahlen);
         
         int[] primzahlen = new int[anzahl];
         // Schleife die durch zahlen geht und immer, wenn 
         // ein Wert true ist, wird der aktuelle Index 
         // in primzahlen eingespeichert;
-        
-        System.out.println( Arrays.toString(primzahlen));
+        for(int i = 0, pi = 0; pi < anzahl; i++) {
+            if(zahlen[i] == true){
+                primzahlen[pi] = i;
+                pi++;
+            }
+        }
+        return primzahlen;
     }
     
     public void ausgabe(boolean[] a) {
         for(int i = 1; i < a.length; i++){
             if (a[i] == true) {
-                System.out.printf("%3d", i);
+                System.out.printf("%5d", i);
             }else {
-                System.out.print("  -");
+                System.out.printf(" %5s", "-");
             }
             
             if (i % 10 == 0) {
