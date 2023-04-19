@@ -1,0 +1,25 @@
+public class ArrayTest{
+    private ArrayGeneratoren generator; 
+    private ArrayOperationen operationen;
+    public ArrayTest(){
+        System.out.println("Erzeuge Ops & Gen");
+        generator = new ArrayGeneratoren(); 
+        operationen = new ArrayOperationen();
+    }
+
+    public void testeZufallszahlen() {
+        System.out.println("testeZufallszahlen()");
+        int[] a = generator.zufallszahlen(10, 200);
+        operationen.druckeArray(a);
+    }
+    
+    public void testeZufallszahlenAufsteigend() {
+        System.out.println("testeZufallszahlen()");
+        int[] a = generator.zufallszahlenAufsteigend(100);
+        operationen.druckeArray(a);
+    }
+    
+    public void testeFindePleateau(){
+        int[] 
+    }
+}
