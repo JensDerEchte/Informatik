@@ -82,13 +82,21 @@ public class ArrayOperationen {
             } 
         }
         // Start hat den richtigen Wert
-        
+
         // 2. Finde die länge des Plateaus
         int ende = start + 1; 
         while(ende < array.length - 1 && array[ende] == array[ende + 1]){
             ende = ende + 1;
         }
-        
+
         return new int[]{start, ende - start + 1};
+    }
+    String[] ENGLISH_NUMBERS = {
+        "zero", "one", "two", "three", "four", "five"
+    };
+    
+    public String toEnglish(int zahl) {
+        
+        return ENGLISH_NUMBERS[zahl];
     }
 }
