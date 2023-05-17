@@ -91,12 +91,73 @@ public class ArrayOperationen {
 
         return new int[]{start, ende - start + 1};
     }
+
     String[] ENGLISH_NUMBERS = {
-        "zero", "one", "two", "three", "four", "five"
-    };
-    
+            "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+            "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen",
+            "seventeen", "eightteen", "nineteen"
+        };
+
+    String[] TENS = {
+            null, null, "twenty", "thirdy", "fourty", "fifty", "sixty", "seventy", "eightty",
+            "ninety"
+        };
+
     public String toEnglish(int zahl) {
-        
-        return ENGLISH_NUMBERS[zahl];
-    }
+        if(zahl < ENGLISH_NUMBERS.length) {
+            return ENGLISH_NUMBERS[zahl];
+        } else if(zahl < 100) {
+            int letzte = zahl % 10;
+            int vorletzte = zahl / 10 % 10;
+            if(letzte == 0){
+                return TENS[vorletzte];
+            }else{
+                return TENS[vorletzte] + "-" + ENGLISH_NUMBERS[letzte];
+            }
+        } else if(zahl < 1000) {
+            int vorvorletzte = zahl / 100;
+            int vorletzte = zahl % 100 % 10;
+            int letzte = zahl % 100 % 10;
+            if(letzte == 10){
+                return TENS[vorletzte];
+            }else{
+                return ENGLISH_NUMBERS[vorvorletzte] +" hundred " + TENS[vorletzte + 1] + "-" + ENGLISH_NUMBERS[letzte];
+            }
+        } else if(zahl < 1_000_000_000) {
+            int einer = 0; 
+            int zehner = 0; 
+            int hunderter = 0;
+            int tausender = 0;
+            int zehntausender = 0;
+            int hundertausender = 0; 
+            int millionen = 0;
+            int zehnmillionen = 0;
+            int hundertmillionen = 0;
+            int milliardener = 0;
+            if(zahl < 100) {
+                int letzte = zahl % 10;
+                int vorletzte = zahl / 10 % 10;
+                if(letzte == 0){
+                    return TENS[vorletzte];
+                }else{
+                    return TENS[vorletzte] + "-" + ENGLISH_NUMBERS[letzte];
+                }
+            }else if(zahl < 1_000) {
+
+            }else if(zahl < 10_000) {
+
+            }else if(zahl < 100_000) {
+
+            }else if(zahl < 1_000_000) {
+
+            }else if(zahl < 10_000_000) {
+
+            }else if(zahl < 100_000_000) {
+
+            }else if(zahl < 1_000_000_000) {
+
+            }
+        }
+        return "Error: Number too large";   
+    }  
 }
