@@ -40,10 +40,46 @@ public class ArrayTest{
     public void testeEnglischeZahlen() {
         int zahl = 0;
         String ergebnis = operationen.toEnglish(zahl);
-        System.out.print("zero <=> " + ergebnis); 
+        System.out.println("zero <=> " + ergebnis); 
         
-        zahl = 1;
+        zahl = 15;
         ergebnis = operationen.toEnglish(zahl);
-        System.out.print("one <=> " + ergebnis); 
+        System.out.println("fifteen <=> " + ergebnis); 
+        
+        zahl = 20;
+        ergebnis = operationen.toEnglish(zahl);
+        System.out.println("twenty <=> " + ergebnis);
+        
+        zahl = 23;
+        ergebnis = operationen.toEnglish(zahl);
+        System.out.println("twenty-three <=> " + ergebnis);
+        
+        zahl = 52;
+        ergebnis = operationen.toEnglish(zahl);
+        System.out.println("fifty-two <=> " + ergebnis); 
+        
+        zahl = 99;
+        ergebnis = operationen.toEnglish(zahl);
+        System.out.println("ninety-nine <=> " + ergebnis);
+        
+        zahl = 154;
+        ergebnis = operationen.toEnglish(zahl);
+        System.out.println("one hundred fifty-four <=> " + ergebnis);
+        
+        zahl = 200;
+        ergebnis = operationen.toEnglish(zahl);
+        System.out.println("two hundred <=> " + ergebnis);
+        
+        zahl = 7_623;
+        ergebnis = operationen.toEnglish(zahl);
+        System.out.println("seven thousand six houndred twenty-three <=> " + ergebnis);
+        
+        zahl = 1_000_000;
+        ergebnis = operationen.toEnglish(zahl);
+        System.out.println("one million <=> " + ergebnis);
+        
+        zahl = 1_987_654_321;
+        ergebnis = operationen.toEnglish(zahl);
+        System.out.println("seven thousand ssix houndred twenty-three <=> " + ergebnis);
     } 
 }
