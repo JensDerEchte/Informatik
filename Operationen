@@ -84,10 +84,16 @@ public class ArrayOperationen1 {
         int uu = 0; 
         int ww = 0;
         int zz = 0;
+        int vv = 0;
         if(zahl < 20){
             return einer[zahl];
         }else if(zahl < 1_000_000_000){
             int e = zahl % 10;
+            if(e == 0){
+                vv = 0;
+            }else if (e > 0){
+                vv = 5;
+            } 
             int z = (zahl / 10) % 10;
             if(z == 0){
                 zz = 0;
@@ -142,7 +148,7 @@ public class ArrayOperationen1 {
             }else if(b > 0){
                 x = 4;
             } 
-            return einer1[b] + hund[x] + einer1[mmm] + hund[a] + zehner[mm] + hund[u] + einer1[m] + hund[w] + einer1[ttt] + hund[xx] + zehner[tt] + hund[aa] + einer1[m] + hund[uu] + einer1[h] + hund[ww];
+            return einer1[b] + hund[x] + einer1[mmm] + hund[a] + zehner[mm] + hund[u] + einer1[m] + hund[w] + einer1[ttt] + hund[xx] + zehner[tt] + hund[aa] + einer1[m] + hund[uu] + einer1[h] + hund[ww] + zehner[z] + hund[vv] + einer1[e] ;
         }
         return "Error: Number too large";
     }
