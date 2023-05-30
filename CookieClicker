@@ -1,0 +1,119 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+public class CookieClicker{
+
+    int cookies = 0;
+    int cookiesPerClick = 1;
+    int upgradeCost = 10;
+    int upgradeCost2 = 150;
+    int autoCookies = 0;
+    int x = 0;
+    private JLabel lbKosten;
+    private JLabel lbCookies;
+    private JLabel lbCookiesPerClick;
+    private JLabel lbAutoCookies;
+    private JButton bKlicker;
+    private JButton bUpgrade;
+    private JButton bAuto;
+
+    public static void main(String[] args){
+        new CookieClicker();
+    }
+
+    public CookieClicker(){
+        JFrame fenster = new JFrame("CookieClicker");
+        fenster.setSize(800, 600);
+        fenster.setLayout(new GridLayout(7, 0));
+
+        lbCookies = new JLabel("Cookies: " + cookies);
+        lbCookies.setFont(new Font(Font.SERIF, Font.BOLD, 64));  
+        lbCookies.setHorizontalAlignment(JLabel.CENTER);
+        fenster.add(lbCookies);
+
+        lbKosten = new JLabel("Upgrade Cost: " + upgradeCost + "; Auto Cookies Cost: " + upgradeCost2);
+        lbKosten.setFont(new Font(Font.SERIF, Font.BOLD, 64));  
+        lbKosten.setHorizontalAlignment(JLabel.CENTER);
+        fenster.add(lbKosten);
+
+        lbCookiesPerClick = new JLabel("Cookies/Click: " +cookiesPerClick);
+        lbCookiesPerClick.setFont(new Font(Font.SERIF, Font.BOLD, 64));  
+        lbCookiesPerClick.setHorizontalAlignment(JLabel.CENTER);
+        fenster.add(lbCookiesPerClick);
+
+        lbAutoCookies = new JLabel("Automatische Cookies: " + autoCookies);
+        lbAutoCookies.setFont(new Font(Font.SERIF, Font.BOLD, 64));  
+        lbAutoCookies.setHorizontalAlignment(JLabel.CENTER);
+        fenster.add(lbAutoCookies);
+
+        bKlicker = new JButton();
+        bKlicker.setIcon(new ImageIcon("cookie.png"));
+        bKlicker.setSize(60, 20);
+
+        bAuto = new JButton();
+        bAuto.setIcon(new ImageIcon("Auto.png"));
+        bAuto.setSize(60, 20);
+
+        bUpgrade = new JButton();
+        bUpgrade.setIcon(new ImageIcon("cookie2.png"));
+        bUpgrade.setSize(60, 20);
+
+        bKlicker.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent event) {
+                    mehrCookies();
+                }
+            });
+
+        bUpgrade.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent event) {
+                    UpgradeCookies();
+                }
+            });
+
+        bAuto.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent event) {
+                    AutoCookies();
+                }
+            });
+        fenster.add(bKlicker);
+        fenster.add(bUpgrade);
+        fenster.add(bAuto);
+        fenster.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        fenster.setVisible(true);
+
+    }
+
+    public void mehrCookies(){
+        if(autoCookies > 0){
+            x++;
+            if(x == 3){
+                x = 0;
+                cookies += cookiesPerClick;
+            }
+        }
+        cookies += cookiesPerClick;
+        lbCookies.setText("Cookies: " + cookies);
+    }
+
+    public void UpgradeCookies(){
+        if (cookies >= upgradeCost) {
+            cookies -= upgradeCost;
+            cookiesPerClick++;
+            upgradeCost *= 2;
+            lbCookiesPerClick.setText("Cookies/Click: " +cookiesPerClick);
+            lbKosten.setText("Upgrade Cost: " + upgradeCost + "; Auto Cookies Cost: " + upgradeCost2);
+            lbCookies.setText("Cookies: " + cookies);
+        }
+    }
+
+    public void AutoCookies(){
+        if (cookies >= upgradeCost2) {
+            cookies -= upgradeCost2;
+            upgradeCost2 *= 2;
+            autoCookies ++;
+            lbAutoCookies.setText("Automatische Cookies: " + autoCookies);
+            lbKosten.setText("Upgrade Cost: " + upgradeCost + "; Auto Cookies Cost: " + upgradeCost2);
+            lbCookies.setText("Cookies: " + cookies);
+        }
+    }
+}
